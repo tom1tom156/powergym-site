@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f0f0f;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* HEADER (effetto vetro leggero) */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: rgba(0,0,0,0.9);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(6px);
+}
+
+/* NAV */
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: red;
+}
+
+/* HERO (animazione ingresso) */
+.hero {
+  padding: 120px 20px;
+  text-align: center;
+  background: linear-gradient(#000, #222);
+  animation: fadeIn 0.8s ease-in;
+}
+
+/* BOTTONI */
+button {
+  padding: 12px 25px;
+  background: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s;
+  border-radius: 6px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: darkred;
+}
+
+/* GRID */
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px;
+  flex-wrap: wrap;
+}
+
+/* CARD (più “premium”) */
+.card {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 180px;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background: #333;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+  padding: 80px;
+}
+
+/* BUTTON LINK */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: red;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: darkred;
+}
+
+/* ANIMAZIONE */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
