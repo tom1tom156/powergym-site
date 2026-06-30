@@ -1,115 +1,322 @@
 body {
   margin: 0;
-  font-family: Arial;
-  background: #0f0f0f;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #1a1a1a, #0f0f0f);
   color: white;
   scroll-behavior: smooth;
 }
 
-/* HEADER (effetto vetro leggero) */
+/* HEADER GLASS */
 header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background: rgba(0,0,0,0.9);
+  align-items: center;
+  padding: 18px 30px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
-  backdrop-filter: blur(6px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,0,0,0.2);
 }
 
 /* NAV */
 nav a {
   color: white;
-  margin: 0 10px;
+  margin: 0 12px;
   text-decoration: none;
+  font-weight: 500;
+  position: relative;
   transition: 0.3s;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: red;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 nav a:hover {
   color: red;
 }
 
-/* HERO (animazione ingresso) */
+/* HERO */
 .hero {
-  padding: 120px 20px;
+  padding: 140px 20px;
   text-align: center;
-  background: linear-gradient(#000, #222);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), #0f0f0f),
+              url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438') center/cover;
   animation: fadeIn 0.8s ease-in;
 }
 
-/* BOTTONI */
-button {
-  padding: 12px 25px;
-  background: red;
-  border: none;
-  color: white;
-  cursor: pointer;
-  margin-top: 15px;
-  transition: 0.3s;
-  border-radius: 6px;
+.hero h1 {
+  font-size: 3em;
+  text-shadow: 0 5px 20px rgba(0,0,0,0.8);
 }
 
-button:hover {
-  transform: scale(1.05);
-  background: darkred;
+/* BOTTONI GENERICI */
+.btn {
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: 0.25s;
+  min-width: 160px;
+  background: #b30000; /* unico colore */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: #8f0000;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
 /* GRID */
 .grid {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  padding: 50px;
+  gap: 25px;
+  padding: 60px;
   flex-wrap: wrap;
 }
 
-/* CARD (più “premium”) */
+/* CARD */
 .card {
-  background: #222;
-  padding: 20px;
-  border-radius: 10px;
-  min-width: 180px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  overflow: hidden;
   text-align: center;
-  transition: 0.3s;
-  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: 0.4s;
+  border: 1px solid rgba(255,0,0,0.1);
+  backdrop-filter: blur(6px);
+  min-width: 220px;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: 0.4s;
+}
+
+.card h3 {
+  margin: 12px 0 5px;
+}
+
+.card p {
+  font-size: 0.9em;
+  opacity: 0.8;
+  padding: 0 10px 15px;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  background: #333;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,0,0,0.3);
+}
+
+.card:hover img {
+  transform: scale(1.08);
 }
 
 /* CONTACT */
 .contact {
   text-align: center;
-  padding: 80px;
+  padding: 90px 20px;
 }
 
-/* BUTTON LINK */
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  background: red;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+/* BOTTONI CONTATTI */
+.btn.whatsapp { background: #25D366; }
+.btn.email { background: #d62828; }
+.btn.gmail { background: #ff3b30; }
+
+.btn.whatsapp:hover,
+.btn.email:hover,
+.btn.gmail:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+/* INFO BOX */
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 60px 20px;
+}
+
+.info-box {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+  text-align: center;
+  border: 1px solid rgba(255,0,0,0.1);
   transition: 0.3s;
 }
 
-.btn:hover {
+.info-box:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.08);
+}
+
+/* MAP */
+.map {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.map iframe {
+  width: 90%;
+  max-width: 900px;
+  height: 350px;
+  border: 0;
+  border-radius: 12px;
+}
+.pricing {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.pricing-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.price-card {
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 15px;
+  width: 220px;
+  border: 1px solid rgba(255,0,0,0.1);
+  transition: 0.3s;
+}
+
+.price-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255,255,255,0.08);
+}
+
+.price {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 10px 0;
+  color: red;
+}
+
+/* card centrale evidenziata */
+.highlight {
+  border: 1px solid red;
   transform: scale(1.05);
-  background: darkred;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact h3 {
+  margin-top: 40px;
+  opacity: 0.9;
 }
 
 /* ANIMAZIONE */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* 📱 MOBILE FIX COMPLETO */
+@media (max-width: 600px) {
+
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero {
+    padding: 90px 15px;
+  }
+
+  .grid {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .card {
+    width: 90%;
+    margin: auto;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 80%;
+  }
+
+  .info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-box {
+    width: 90%;
+  }
+
+  .map iframe {
+    width: 100%;
   }
 }
